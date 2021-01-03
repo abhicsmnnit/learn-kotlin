@@ -8,7 +8,9 @@ enum class Color {
 
 fun main() {
     println(getMnemonic(GREEN))
+
     println(getWarmth(INDIGO))
+
     println(mix(RED, YELLOW))
     println(mix(YELLOW, RED))
     println(mix(RED, BLUE))
@@ -33,8 +35,8 @@ fun getWarmth(c: Color) =
     }
 
 fun mix(c1: Color, c2: Color) =
-    when (setOf(c1, c2)) {
-        setOf(RED, YELLOW) -> ORANGE
+    when (setOf(c1, c2)) { // Argument of `when` can be any object
+        setOf(RED, YELLOW) -> ORANGE // Argument is checked for equality with the branch conditions
         setOf(BLUE, YELLOW) -> GREEN
         setOf(BLUE, VIOLET) -> INDIGO
         else -> throw Exception("Dirty color")
